@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Pribadi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      animation: fadeBackground 10s linear infinite;
+    }
+
+    @keyframes fadeBackground {
+      0% {
+        background-color: rgba(255, 159, 0, 1);
+      }
+      25% {
+        background-color: rgba(255, 159, 0, 0.75);
+      }
+      50% {
+        background-color: rgba(255, 159, 0, 0.5);
+      }
+      75% {
+        background-color: rgba(255, 159, 0, 0.25);
+      }
+      100% {
+        background-color: rgba(255, 159, 0, 1);
+      }
+    }
+
+    .banner {
+      width: 100%;
+      height: 100vh; /* Menggunakan tinggi viewport */
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover; /* Memastikan gambar penuh tanpa mempertahankan aspek ratio */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: transparent;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* CSS style untuk galeri foto */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s;
+    }
+
+    .gallery-item img.zoomed {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 18px;
+  text-align: center; /* Menengahkan teks */
+}
+
+
+    /* CSS style untuk popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .popup .caption {
+      color: #fff;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="password-container">
+    <h1>Website Pribadi</h1>
+    <form id="password-form">
+      <input type="password" id="password-input" placeholder="Masukkan kata sandi">
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+
+  <div class="container hidden" id="content-container">
+    <header class="banner">
+      <img src="https://media.tenor.com/_i9AUV0dv_0AAAAC/welcome-banner.gif" alt="Banner" style="width: 100%;">
+    </header>
+
+  <h1 style="margin-top: -170px;">My Private Collection</h1>
+
+
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://scontent.fcgk4-6.fna.fbcdn.net/v/t39.30808-6/314968066_817487372902542_5168491003614326573_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFZEOfQ8Xw6q2YtXPTz0bQeFkXWDiNymj4WRdYOI3KaPtV4PKqUx01ljK3qumGI39RbZHg_ebWOncCCTuDb8hkE&_nc_ohc=BwfQusIfbpsAX-G-MEr&_nc_zt=23&_nc_ht=scontent.fcgk4-6.fna&oh=00_AfCSW0ehExJKSuGZuhDJQ7FZ77R3JJ2k9OKtyuUZe4AQUA&oe=648BB6D7" alt="Image 1">
+        <div class="caption">Jangan menoleh ke belahkang untuk melihat hal yang telah Allah jauhkan untuk dirimu.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://scontent.fcgk4-6.fna.fbcdn.net/v/t1.6435-9/82897915_164775794840373_4334272869597970432_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeGAalHFdNIYmNNvJPl2FB3G9xLvvYtDUAD3Eu-9i0NQAJhDtBQCuwRscvG0UjaviJwkV2XtektJf5JdKGIYt5Gd&_nc_ohc=-UyvWLQvzwwAX-M-0RP&_nc_ht=scontent.fcgk4-6.fna&oh=00_AfDlaG0mY-LlCwyWvgKUsn5uo-Zj343yhZ0H8dF4VFSldg&oe=64AD45BD" alt="Image 2">
+        <div class="caption">Jangan menjadi cahaya dalam kegelapan bagi mereka yang tidak bisa mengenal warna.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://scontent.fcgk4-4.fna.fbcdn.net/v/t39.30808-6/353040791_946346646683280_5768781356658568876_n.jpg?stp=dst-jpg_p180x540&_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHuFbVBs4cRFMT8A6DY8N7qjk8CgqbVA7yOTwKCptUDvI4_TqE8oy5S2TG1vHWpzKvO1Vu6utmmVWGChwhYizrG&_nc_ohc=mEZE4NgorjwAX-p__h2&_nc_zt=23&_nc_ht=scontent.fcgk4-4.fna&oh=00_AfDKsjbY6vifsmM5vOzSrfg2HZiiAt_ieYsv1Qi9tSX8YA&oe=648B7B05" alt="Image 3">
+        <div class="caption">Jika hidupmu terasa tak berwarna, jangan berharap kepada orang lain untuk mewarnainya.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://scontent.fcgk4-2.fna.fbcdn.net/v/t1.6435-9/81375686_161928401791779_7550310746953875456_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFQfUfwPK_Z9kTl5bw_EveOEukTz5iRHV4S6RPPmJEdXsV7bdrAbs2-Z8gQWWdwqNdmUWFL2FnDwKqUANnbdhrl&_nc_ohc=usQRiRru_24AX9FaOKc&_nc_ht=scontent.fcgk4-2.fna&oh=00_AfCpJS7sqld38f2ooPY7LoPYWUfzwnKQZHDaTvYKuL_oyg&oe=64AD32A4" alt="Image 4">
+        <div class="caption">Kalah segalanya</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup">
+    <img src="" alt="Popup Image">
+    <div class="caption"></div>
+  </div>
+
+  <script>
+    // JavaScript untuk menu password
+    const passwordForm = document.getElementById('password-form');
+    const passwordInput = document.getElementById('password-input');
+    const passwordContainer = document.getElementById('password-container');
+    const contentContainer = document.getElementById('content-container');
+
+    passwordForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const password = passwordInput.value.trim();
+      if (password === 'Siswateladan72') {
+        passwordContainer.classList.add('hidden');
+        contentContainer.classList.remove('hidden');
+      } else {
+        alert('Kata sandi salah. Silakan coba lagi.');
+      }
+    });
+
+    // JavaScript untuk pertukaran warna latar belakang
+    const changeBackgroundColor = () => {
+      const colors = [
+        Math.floor(Math.random() * 256),
+        Math.floor(Math.random() * 256),
+        Math.floor(Math.random() * 256)
+      ];
+
+      const gradient = `linear-gradient(to bottom right, rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, 1), rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, 0.75), rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, 0.5), rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, 0.25), rgba(${colors[0]}, ${colors[1]}, ${colors[2]}, 1))`;
+      document.body.style.background = gradient;
+    };
+
+    changeBackgroundColor(); // Panggil fungsi pertama kali
+
+    // JavaScript untuk efek mengalir halus
+    setInterval(changeBackgroundColor, 10000); // Panggil fungsi setiap 10 detik
+
+    // JavaScript untuk galeri foto
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const popup = document.querySelector('.popup');
+    const popupImage = popup.querySelector('img');
+    const popupCaption = popup.querySelector('.caption');
+
+    galleryItems.forEach((item) => {
+      item.addEventListener('click', () => {
+        const imgSrc = item.querySelector('img').getAttribute('src');
+        const captionText = item.querySelector('.caption').textContent;
+
+        popupImage.src = imgSrc;
+        popupCaption.textContent = captionText;
+
+        popup.classList.add('show');
+      });
+    });
+
+    popup.addEventListener('click', (event) => {
+      if (event.target === popup) {
+        popup.classList.remove('show');
+      }
+    });
+  </script>
+</body>
+
+</html>
